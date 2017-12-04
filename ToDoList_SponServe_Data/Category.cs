@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ToDoList_SponServe_Data
 {
-    public class Class1
+    public class Category
     {
 
+        public string Id { get; set; }
+        public string CategoryName { get; set; }
 
     }
 }
