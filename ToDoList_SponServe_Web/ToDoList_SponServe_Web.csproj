@@ -197,11 +197,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712040815224_InitialCreate.cs" />
-    <Compile Include="Migrations\201712040815224_InitialCreate.Designer.cs">
-      <DependentUpon>201712040815224_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -274,11 +269,6 @@
       <Project>{c4da253a-e2a0-4e7e-89a5-8567260a8cb9}</Project>
       <Name>ToDoList_SponServe_Service</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712040815224_InitialCreate.resx">
-      <DependentUpon>201712040815224_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
