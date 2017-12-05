@@ -5,72 +5,123 @@
 
 <div class="todo-content">
 
-    <div class="col-md-4 category well">
-        <h1>Categories:</h1>
+    <div class="col-md-4 ">
+        <div class="categoryBar well">
+            <div class="user-profile">
 
-        <ul class="list-group">
+                <img src="~/Assets/Image/profile-default.jpg"/>
+            </div>
+            
+            <hr />
 
-            <li class="list-group-item clearfix">
-                <span>Eat breakfast</span>
+            <div class="category">
+                <h3>Categories:</h3>
 
-                <div class="pull-right" role="group">
-                    <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                    <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-                </div>
-            </li>
-            <li class="list-group-item clearfix">
-                <span>Eat breakfast</span>
+                <ul class="list-group">
 
-                <div class="pull-right" role="group">
-                    <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                    <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-                </div>
-            </li>
-            <li class="list-group-item clearfix">
-                <span>Eat breakfast</span>
+                    <li class="list-group-item clearfix">
+                        <span>Eat breakfast</span>
 
-                <div class="pull-right" role="group">
-                    <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                    <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-                </div>
-            </li>
-        </ul>    
-    
+                        <div class="pull-right" role="group">
+                        </div>
+                    </li>
+                    <li class="list-group-item clearfix">
+                        <span>Eat breakfast</span>
+
+                        <div class="pull-right" role="group">
+                        </div>
+                    </li>
+                    <li class="list-group-item clearfix">
+                        <span>Eat breakfast</span>
+
+                        <div class="pull-right" role="group">
+                        </div>
+                    </li>
+                </ul>   
+            </div>
+
+            <div class="add-category">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-category">Add Category</button>
+            </div>
+        </div>
     </div>
 
 
 
 
-    <div class="col-md-8 todos well">
-      <h1>To do:</h1>
+    <div class="col-md-8 well">
+        <div class="todos">
 
-      <ul class="list-group">
+            <h3>To Do:</h3>
 
-          <li class="list-group-item clearfix">
-              <span>Eat breakfast</span>
+            <ul class="list-group">
 
-              <div class="pull-right" role="group">
-                  <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                  <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-              </div>
-          </li>
-          <li class="list-group-item clearfix">
-              <span>Eat breakfast</span>
+                <li class="list-group-item clearfix">
+                    <span>Eat breakfast</span>
 
-              <div class="pull-right" role="group">
-                  <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                  <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-              </div>
-          </li>
-          <li class="list-group-item clearfix">
-              <span>Eat breakfast</span>
+                    <div class="pull-right" role="group">
+                        <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
+                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                    </div>
+                </li>
+                <li class="list-group-item clearfix">
+                    <span>Eat breakfast</span>
 
-              <div class="pull-right" role="group">
-                  <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                  <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-              </div>
-          </li>
-      </ul>
+                    <div class="pull-right" role="group">
+                        <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
+                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                    </div>
+                </li>
+                <li class="list-group-item clearfix">
+                    <span>Eat breakfast</span>
+
+                    <div class="pull-right" role="group">
+                        <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
+                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="finished">
+
+            <h3>Finished:</h3>
+
+            <ul class="list-group">
+
+                <li class="list-group-item clearfix">
+                    <span>Eat breakfast</span>
+
+                    <div class="pull-right" role="group">
+                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                    </div>
+                </li>
+                <li class="list-group-item clearfix">
+                    <span>Eat breakfast</span>
+
+                    <div class="pull-right" role="group">
+                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                    </div>
+                </li>
+                <li class="list-group-item clearfix">
+                    <span>Eat breakfast</span>
+
+                    <div class="pull-right" role="group">
+                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+        <div>
+            <button type="button" class="add-todo btn btn-primary">Add Todo</button>
+        </div>
     </div>
-
 </div>
+
+  
+
+@Html.Partial("_AddCategoryModal")

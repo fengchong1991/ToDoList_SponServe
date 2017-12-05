@@ -204,6 +204,7 @@
   <ItemGroup>
     <Content Include="Assets\Content\bootstrap.css" />
     <Content Include="Assets\Content\bootstrap.min.css" />
+    <Content Include="Assets\Image\profile-default.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -239,6 +240,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\ToDoList\Index.cshtml" />
     <Content Include="Views\Home\TimeSheet.cshtml" />
+    <Content Include="Views\ToDoList\_AddCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />

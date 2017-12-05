@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-
+    background: #F1F3FA;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -51,6 +51,42 @@ textarea {
     width: 80%;
 }
 
+.user-profile {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.user-profile img{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.category h3 {
+    text-align: center;
+}
+
+.todos ul li {
+    margin-top: 10px;
+    box-shadow: 3px 3px 20px #e8e8e8;
+}
+
+.finished ul li {
+    margin-top: 10px;
+    box-shadow: 3px 3px 20px #e8e8e8;
+    text-decoration: line-through;
+}
+
+.add-todo {
+    float:right;
+}
+
+.btn {
+    font-size: 11px;
+}
+
+.add-category {
+    padding-left: 5px;
+}
 
 
 /* Footer */
