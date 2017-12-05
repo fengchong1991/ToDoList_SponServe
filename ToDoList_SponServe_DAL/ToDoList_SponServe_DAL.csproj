@@ -55,19 +55,34 @@
   <ItemGroup>
     <Compile Include="AppDbContext.cs" />
     <Compile Include="ApplicationUser.cs" />
-    <Compile Include="Migrations\201712041305308_Initial.cs" />
-    <Compile Include="Migrations\201712041305308_Initial.Designer.cs">
-      <DependentUpon>201712041305308_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201712050939248_Initial.cs" />
+    <Compile Include="Migrations\201712050939248_Initial.Designer.cs">
+      <DependentUpon>201712050939248_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712041330527_AddUser.cs" />
-    <Compile Include="Migrations\201712041330527_AddUser.Designer.cs">
-      <DependentUpon>201712041330527_AddUser.cs</DependentUpon>
+    <Compile Include="Migrations\201712051026577_AddUrgencyColumn.cs" />
+    <Compile Include="Migrations\201712051026577_AddUrgencyColumn.Designer.cs">
+      <DependentUpon>201712051026577_AddUrgencyColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051112027_AddFinishedColumn.cs" />
+    <Compile Include="Migrations\201712051112027_AddFinishedColumn.Designer.cs">
+      <DependentUpon>201712051112027_AddFinishedColumn.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoryRepo.cs" />
+    <Compile Include="Repository\IRepo.cs" />
+    <Compile Include="Repository\ToDoRepo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <EmbeddedResource Include="Migrations\201712050939248_Initial.resx">
+      <DependentUpon>201712050939248_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051026577_AddUrgencyColumn.resx">
+      <DependentUpon>201712051026577_AddUrgencyColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051112027_AddFinishedColumn.resx">
+      <DependentUpon>201712051112027_AddFinishedColumn.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ToDoList_SponServe_Data\ToDoList_SponServe_Data.csproj">
@@ -77,14 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712041305308_Initial.resx">
-      <DependentUpon>201712041305308_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712041330527_AddUser.resx">
-      <DependentUpon>201712041330527_AddUser.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

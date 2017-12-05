@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList_SponServe_DAL", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList_SponServe_Data", "ToDoList_SponServe_Data\ToDoList_SponServe_Data.csproj", "{4A4CF644-115C-4A42-BC09-F10396788904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList_SponServe_Service", "ToDoList_SponServe_Service\ToDoList_SponServe_Service.csproj", "{C4DA253A-E2A0-4E7E-89A5-8567260A8CB9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{4A4CF644-115C-4A42-BC09-F10396788904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A4CF644-115C-4A42-BC09-F10396788904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A4CF644-115C-4A42-BC09-F10396788904}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4DA253A-E2A0-4E7E-89A5-8567260A8CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4DA253A-E2A0-4E7E-89A5-8567260A8CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4DA253A-E2A0-4E7E-89A5-8567260A8CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4DA253A-E2A0-4E7E-89A5-8567260A8CB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

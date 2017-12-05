@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ToDoList_SponServe_Web.Models
+namespace ToDoList_SponServe_Web.Models.ViewModels
 {
     public class LoginViewModel
     {

@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Category>
+
 @{
     ViewBag.Title = "Index";
 }
@@ -19,24 +20,19 @@
 
                 <ul class="list-group">
 
-                    <li class="list-group-item clearfix">
-                        <span>Eat breakfast</span>
+                    @foreach (var category in Model)
+                    {
 
-                        <div class="pull-right" role="group">
-                        </div>
-                    </li>
-                    <li class="list-group-item clearfix">
-                        <span>Eat breakfast</span>
 
-                        <div class="pull-right" role="group">
-                        </div>
-                    </li>
-                    <li class="list-group-item clearfix">
-                        <span>Eat breakfast</span>
+                        <li class="list-group-item clearfix @(category.Id == ViewBag.categoryID?"selected-category":"")">
+                            @Html.ActionLink(category.CategoryName, "Index",new { categoryID = category.Id })
 
-                        <div class="pull-right" role="group">
-                        </div>
-                    </li>
+                            <div class="pull-right" role="group">
+                            </div>
+                        </li>
+
+                    }
+     
                 </ul>   
             </div>
 
@@ -48,80 +44,112 @@
 
 
 
-
+    
     <div class="col-md-8 well">
-        <div class="todos">
+        @if (Model.Any())
+        {
+            foreach (var category in Model)
+            {
+                if (category.Id == (int)ViewBag.categoryID)
+                {
+                    <div class="todos">
 
-            <h3>To Do:</h3>
+                        <h3>To Do:</h3>
 
-            <ul class="list-group">
+                        <ul class="list-group">
 
-                <li class="list-group-item clearfix">
-                    <span>Eat breakfast</span>
+                            @if(!category.ToDos.Where(t => t.Finished == false).Any())
+                            { 
+                                <li class="list-group-item clearfix">
+                                    <span>Good work! No more to dos!</span>
+                                </li>
+                            }
 
-                    <div class="pull-right" role="group">
-                        <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                            @foreach (var todo in category.ToDos.Where(t => t.Finished == false).OrderByDescending(t => t.Urgency))
+                            {
+                                <li class="list-group-item clearfix urgency-@todo.Urgency">
+                                    <span>@todo.Title</span>
+
+                                    <div class="pull-right" role="group">
+                                       
+                                        @using (Html.BeginForm("MarkToDoComplete","ToDoList",FormMethod.Post,new { @class = "todo-complete" }))
+                                        {
+                                            <input type="hidden" name="toDoId" value="@todo.Id"/>
+                                            <button type="submit" class="btn btn-xs btn-success img-circle todo-finished">✓</button>
+                                        }
+
+                                        @using (Html.BeginForm("DeleteToDo", "ToDoList", FormMethod.Post, new { @class = "todo-delete" }))
+                                        {
+                                            <input type="hidden" name="toDoId" value="@todo.Id" />
+                                            <input type="hidden" name="categoryId" value="@todo.CategoryId" />
+
+                                            <button type="submit" class="btn btn-xs btn-danger img-circle todo-removed">Ｘ</button>
+                                        }
+
+                                    </div>
+                                </li>
+                            }
+                        </ul>
                     </div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <span>Eat breakfast</span>
 
-                    <div class="pull-right" role="group">
-                        <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
+                    <div class="finished">
+
+                        <h3>Finished:</h3>
+
+                        <ul class="list-group">
+
+                            @if (!category.ToDos.Where(t => t.Finished == true).Any())
+                            {
+                                <li class="list-group-item clearfix">
+                                    <span>Finished tasks are here</span>
+                                </li>
+                            }
+
+                            @foreach (var todo in category.ToDos.Where(t => t.Finished == true))
+                            {
+                                <li class="list-group-item clearfix">
+                                    <span>@todo.Title</span>
+
+
+
+                                    <div class="pull-right" role="group">
+
+                                        @using (Html.BeginForm("DeleteToDo", "ToDoList", FormMethod.Post, new { @class = "todo-delete" }))
+                                        {
+                                            <input type="hidden" name="toDoId" value="@todo.Id" />
+                                            <input type="hidden" name="categoryId" value="@todo.CategoryId" />
+
+                                            <button type="submit" class="btn btn-xs btn-danger img-circle todo-removed">Ｘ</button>
+                                        }
+                                    </div>
+                                </li>
+                            }
+ 
+                        </ul>
                     </div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <span>Eat breakfast</span>
+                }
+            }
 
-                    <div class="pull-right" role="group">
-                        <button type="button" class="btn btn-xs btn-success img-circle">✓</button>
-                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-                    </div>
-                </li>
-            </ul>
-        </div>
+            <div>
+                <button type="button" class="add-todo btn btn-primary" data-toggle="modal" data-target="#add-todo">Add Todo</button>
+            </div>
+        }
+        else
+        {
+            <div class="todos">
 
+                <h2>Please create a to do category first</h2>
+            </div>
+        }
 
-
-        <div class="finished">
-
-            <h3>Finished:</h3>
-
-            <ul class="list-group">
-
-                <li class="list-group-item clearfix">
-                    <span>Eat breakfast</span>
-
-                    <div class="pull-right" role="group">
-                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-                    </div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <span>Eat breakfast</span>
-
-                    <div class="pull-right" role="group">
-                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-                    </div>
-                </li>
-                <li class="list-group-item clearfix">
-                    <span>Eat breakfast</span>
-
-                    <div class="pull-right" role="group">
-                        <button type="button" class="btn btn-xs btn-danger img-circle">Ｘ</button>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-
-        <div>
-            <button type="button" class="add-todo btn btn-primary">Add Todo</button>
-        </div>
     </div>
 </div>
 
   
 
 @Html.Partial("_AddCategoryModal")
+
+@if (Model.Any())
+{
+    @Html.Partial("_AddToDoModal",(int)ViewBag.categoryID)
+}

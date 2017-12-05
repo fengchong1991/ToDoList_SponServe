@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ToDoList_SponServe_Web.Models;
 using ToDoList_SponServe_DAL;
+using ToDoList_SponServe_Web.Models.ViewModels;
 
 namespace ToDoList_SponServe_Web.Controllers
 {
@@ -58,7 +59,6 @@ namespace ToDoList_SponServe_Web.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -79,8 +79,8 @@ namespace ToDoList_SponServe_Web.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    TempData["error msg"] = "Invalid login attempt.";
+                    return RedirectToAction("Index", "Home");
             }
         }
 
@@ -204,6 +204,7 @@ namespace ToDoList_SponServe_Web.Controllers
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
+
         #endregion
     }
 }

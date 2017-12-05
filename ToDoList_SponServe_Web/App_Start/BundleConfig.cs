@@ -26,6 +26,9 @@ namespace ToDoList_SponServe_Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Assets/Content/bootstrap.css",
                       "~/Assets/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/js").Include(
+                "~/Assets/Content/site.js"));
         }
     }
 }

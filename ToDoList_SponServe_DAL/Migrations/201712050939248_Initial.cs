@@ -11,10 +11,24 @@ namespace ToDoList_SponServe_DAL.Migrations
                 "dbo.Categories",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
                         CategoryName = c.String(),
+                        UserId = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.ToDoes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        CategoryId = c.Int(nullable: false),
+                        UserId = c.String(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
+                .Index(t => t.CategoryId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -38,18 +52,6 @@ namespace ToDoList_SponServe_DAL.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
-            
-            CreateTable(
-                "dbo.ToDoes",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Title = c.String(),
-                        CategoryId = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Categories", t => t.CategoryId)
-                .Index(t => t.CategoryId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -103,21 +105,21 @@ namespace ToDoList_SponServe_DAL.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.ToDoes", "CategoryId", "dbo.Categories");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.ToDoes", "CategoryId", "dbo.Categories");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.ToDoes", new[] { "CategoryId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.ToDoes", new[] { "CategoryId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.ToDoes");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.ToDoes");
             DropTable("dbo.Categories");
         }
     }

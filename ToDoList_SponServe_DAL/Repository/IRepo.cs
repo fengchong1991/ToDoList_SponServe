@@ -12,7 +12,7 @@ namespace ToDoList_SponServe_DAL.Repository
     public interface IRepo<T1,T2> : IDisposable where T1: class
     {
 
-        void Insert(T1 obj);
+        T1 Insert(T1 obj);
         void Save();
     }
 }

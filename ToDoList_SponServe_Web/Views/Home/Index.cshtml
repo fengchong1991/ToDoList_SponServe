@@ -15,8 +15,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="well">
-                            @using (Html.BeginForm("Login","Account",FormMethod.Post,new { id="loginForm"}))
+                            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "loginForm" }))
                             {
+                                <div class="warning">
+                                    @TempData["error msg"]
+                                </div>
+
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <label for="username" class="control-label">Username</label>

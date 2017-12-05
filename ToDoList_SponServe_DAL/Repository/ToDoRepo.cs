@@ -13,9 +13,22 @@ namespace ToDoList_SponServe_DAL.Repository
             this.db = new AppDbContext();
         }
 
-        public void Insert(ToDo obj)
+        public ToDo Insert(ToDo obj)
         {
-            db.ToDos.Add(obj);
+            return db.ToDos.Add(obj);
+        }
+
+        public int MarkToDoComplete(int Id)
+        {
+            var todo = db.ToDos.Find(Id);
+            todo.Finished = true;
+            return todo.CategoryId;
+        }
+
+        public void DeleteToDo(int Id)
+        {
+            ToDo toDOToDelete = new ToDo() { Id = Id };
+            db.Entry(toDOToDelete).State = System.Data.Entity.EntityState.Deleted;
         }
 
 

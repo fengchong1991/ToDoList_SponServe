@@ -6,13 +6,15 @@ namespace ToDoList_SponServe_Data
 {
     public class ToDo
     {
-        [Key]
-        public string Id { get; set; }
-        public string Title { get; set; }
-        public string CategoryId { get; set; }
-        public string UserId { get; set; }
+        public int Id { get; set; }
 
-        [ForeignKey("CategoryId")]
+        public string Title { get; set; }
+        public int CategoryId { get; set; }
+        public string UserId { get; set; }
+        public int Urgency { get; set; }
+        public bool Finished { get; set; }
+    
+
         public virtual Category Category { get; set; }
 
     }

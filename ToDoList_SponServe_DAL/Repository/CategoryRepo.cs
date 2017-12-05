@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,14 +17,14 @@ namespace ToDoList_SponServe_DAL.Repository
             this.db = new AppDbContext();
         }
 
-        public void Insert(Category obj)
+        public Category Insert(Category obj)
         {
-            db.Categories.Add(obj);
+            return db.Categories.Add(obj);
         }
 
-        public IEnumerable<ToDo> SelectCatByUserID(string userId)
+        public IEnumerable<Category> SelectCatByUserID(string userId)
         {
-            throw new NotImplementedException();
+            return db.Categories.Where(c => c.UserId == userId).Include(c => c.ToDos).ToList();
         }
 
         public void Save()

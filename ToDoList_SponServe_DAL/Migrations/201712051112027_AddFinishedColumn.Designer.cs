@@ -7,13 +7,13 @@ namespace ToDoList_SponServe_DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddUser : IMigrationMetadata
+    public sealed partial class AddFinishedColumn : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddFinishedColumn));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712041330527_AddUser"; }
+            get { return "201712051112027_AddFinishedColumn"; }
         }
         
         string IMigrationMetadata.Source
